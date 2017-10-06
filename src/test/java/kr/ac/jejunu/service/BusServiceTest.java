@@ -1,7 +1,7 @@
 package kr.ac.jejunu.service;
 
 import kr.ac.jejunu.model.BusLineInfo;
-import kr.ac.jejunu.model.BusSchedule;
+import kr.ac.jejunu.model.DepartureSoonBus;
 import kr.ac.jejunu.model.RemainTime;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -11,7 +11,6 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 import javax.transaction.Transactional;
 import java.text.ParseException;
-import java.util.ArrayList;
 import java.util.HashMap;
 
 import static org.hamcrest.core.IsNot.not;
@@ -29,7 +28,8 @@ public class BusServiceTest {
 
     @Test
     public void getAfterNowBusScheduleListTest() throws ParseException {
-        HashMap<BusLineInfo, RemainTime> busScheduleArrayList = busService.getDepartureSoonBusList();
+        HashMap<String, DepartureSoonBus> busScheduleArrayList = busService.getDepartureSoonBusList();
+
 
         assertThat(busScheduleArrayList.size(), not(0));
     }
