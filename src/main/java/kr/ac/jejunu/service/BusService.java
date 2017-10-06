@@ -24,7 +24,7 @@ public class BusService {
     private BusScheduleRepository busScheduleRepository;
 
     public HashMap<String, DepartureSoonBus> getDepartureSoonBusList() throws ParseException {
-        ArrayList<BusSchedule> departureSoonBuses = busScheduleRepository.findBusSchedulesAfterNow(WeekdayHoliday.weekday.name());
+        ArrayList<BusSchedule> departureSoonBuses = busScheduleRepository.findBusSchedulesAfterNowforTest(WeekdayHoliday.weekday.name());
 
         HashMap<String, DepartureSoonBus> departureSoonBusList = new HashMap<>();
         SimpleDateFormat dateFormat = new SimpleDateFormat("HH:mm:ss");
@@ -32,9 +32,14 @@ public class BusService {
         current = dateFormat.parse(dateFormat.format(current));
         Long currentTIme = current.getTime();
 
+        String test = "18:00:00";
+        Date testDate = dateFormat.parse(dateFormat.format(dateFormat.parse(test)));
+
+        Long testTime = testDate.getTime();
+
 
         for (BusSchedule departureSoonBus : departureSoonBuses) {
-            int remainTime = (int) ((departureSoonBus.getDepartureTime().getTime() - currentTIme) / 60000);
+            int remainTime = (int) ((departureSoonBus.getDepartureTime().getTime() - testTime) / 60000);
 
             BusLineInfo busLineInfo = departureSoonBus.getBusLineInfo();
 

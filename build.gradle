@@ -20,9 +20,9 @@ sourceCompatibility = 1.8
 
 jar {
     manifest {
-        attributes  'Title': 'Tong Api Server', 'Version': 1.0, 'Main-Class': 'TongApplication'
+        attributes  'Title': 'Tong Api Server For Testing', 'Version': 1.0, 'Main-Class': 'TongApplication'
     }
-    baseName 'jnu-tong'
+    baseName 'tong-test'
 //    archiveName 'reqTester.jar'
     dependsOn configurations.runtime
     from {
