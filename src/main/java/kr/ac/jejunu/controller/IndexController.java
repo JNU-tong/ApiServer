@@ -20,6 +20,7 @@ public class IndexController {
 
     @RequestMapping(value = "/getDepartureSoonBusList", method = RequestMethod.GET)
     public HashMap<String, DepartureSoonBus> getBeforeDepartureBusList() throws ParseException {
+        System.out.println("/getDepartureSoonBusList request received!!");
         HashMap<String, DepartureSoonBus> departureSoonBusList =  busService.getDepartureSoonBusList();
 
         return departureSoonBusList;

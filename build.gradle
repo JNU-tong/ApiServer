@@ -9,6 +9,7 @@ buildscript {
 
     dependencies {
         classpath 'org.springframework.boot:spring-boot-gradle-plugin:1.5.3.RELEASE'
+        classpath 'io.spring.gradle:dependency-management-plugin:0.5.1.RELEASE'
     }
 }
 
@@ -16,6 +17,18 @@ apply plugin: 'java'
 apply plugin: 'spring-boot'
 
 sourceCompatibility = 1.8
+
+jar {
+    manifest {
+        attributes  'Title': 'Tong Api Server', 'Version': 1.0, 'Main-Class': 'TongApplication'
+    }
+    baseName 'jnu-tong'
+//    archiveName 'reqTester.jar'
+    dependsOn configurations.runtime
+    from {
+        configurations.compile.collect {it.isDirectory()? it: zipTree(it)}
+    }
+}
 
 repositories {
     mavenCentral()

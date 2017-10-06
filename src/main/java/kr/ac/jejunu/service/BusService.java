@@ -24,7 +24,7 @@ public class BusService {
     private BusScheduleRepository busScheduleRepository;
 
     public HashMap<String, DepartureSoonBus> getDepartureSoonBusList() throws ParseException {
-        ArrayList<BusSchedule> departureSoonBuses = busScheduleRepository.findBusSchedulesAfterNow(WeekdayHoliday.holiday.name());
+        ArrayList<BusSchedule> departureSoonBuses = busScheduleRepository.findBusSchedulesAfterNow(WeekdayHoliday.weekday.name());
 
         HashMap<String, DepartureSoonBus> departureSoonBusList = new HashMap<>();
         SimpleDateFormat dateFormat = new SimpleDateFormat("HH:mm:ss");
@@ -51,4 +51,6 @@ public class BusService {
 
         return departureSoonBusList;
     }
+
+
 }
