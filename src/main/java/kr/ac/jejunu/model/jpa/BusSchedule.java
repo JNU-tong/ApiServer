@@ -1,4 +1,6 @@
-package kr.ac.jejunu.model;
+package kr.ac.jejunu.model.jpa;
+
+import kr.ac.jejunu.model.enm.WeekdayHoliday;
 
 import javax.persistence.*;
 import java.util.Date;

@@ -1,6 +1,10 @@
 package kr.ac.jejunu.service;
 
-import kr.ac.jejunu.model.*;
+import kr.ac.jejunu.model.enm.WeekdayHoliday;
+import kr.ac.jejunu.model.jpa.BusLineInfo;
+import kr.ac.jejunu.model.jpa.BusSchedule;
+import kr.ac.jejunu.model.response.DepartureSoonBus;
+import kr.ac.jejunu.model.response.RemainTime;
 import kr.ac.jejunu.repository.BusLineInfoRepository;
 import kr.ac.jejunu.repository.BusScheduleRepository;
 import org.springframework.beans.factory.annotation.Autowired;

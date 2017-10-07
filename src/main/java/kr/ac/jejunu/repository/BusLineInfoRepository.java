@@ -1,6 +1,6 @@
 package kr.ac.jejunu.repository;
 
-import kr.ac.jejunu.model.BusLineInfo;
+import kr.ac.jejunu.model.jpa.BusLineInfo;
 import org.springframework.data.repository.CrudRepository;
 
 /**
