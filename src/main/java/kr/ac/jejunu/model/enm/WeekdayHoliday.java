@@ -1,17 +1,16 @@
 package kr.ac.jejunu.model.enm;
 
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.boot.context.properties.ConfigurationPropertiesBinding;
+import org.springframework.stereotype.Component;
 import org.springframework.web.util.UriComponentsBuilder;
 import org.w3c.dom.Document;
-import org.w3c.dom.Element;
-import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 import java.io.IOException;
-import java.io.UnsupportedEncodingException;
 import java.net.URI;
 import java.net.URLDecoder;
 import java.text.SimpleDateFormat;
@@ -20,6 +19,7 @@ import java.util.Date;
 /**
  * Created by Boobby on 17-9-18.
  */
+@ConfigurationPropertiesBinding
 public enum WeekdayHoliday {
     weekday, holiday, everyday;
 
@@ -63,7 +63,9 @@ public enum WeekdayHoliday {
 
             document.getDocumentElement().normalize();
 
-            NodeList results = document.getEle
+            System.out.println(document.toString());
         }
+
+        return null;
     }
 }
