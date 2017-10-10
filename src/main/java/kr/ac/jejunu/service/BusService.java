@@ -7,6 +7,7 @@ import kr.ac.jejunu.model.response.DepartureSoonBus;
 import kr.ac.jejunu.model.response.RemainTime;
 import kr.ac.jejunu.repository.BusLineInfoRepository;
 import kr.ac.jejunu.repository.BusScheduleRepository;
+import kr.ac.jejunu.service.generator.RemainTimeGenerator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -22,23 +23,15 @@ import java.util.HashMap;
 @Service
 public class BusService {
     @Autowired
-    private BusLineInfoRepository busLineInfoRepository;
-
-    @Autowired
     private BusScheduleRepository busScheduleRepository;
 
-    public HashMap<String, DepartureSoonBus> getDepartureSoonBusList() throws ParseException {
+    public HashMap<String, DepartureSoonBus> getDepartureSoonBusList() {
         ArrayList<BusSchedule> departureSoonBuses = busScheduleRepository.findBusSchedulesAfterNow(WeekdayHoliday.weekday.name());
 
         HashMap<String, DepartureSoonBus> departureSoonBusList = new HashMap<>();
-        SimpleDateFormat dateFormat = new SimpleDateFormat("HH:mm:ss");
-        Date current = new Date();
-        current = dateFormat.parse(dateFormat.format(current));
-        Long currentTIme = current.getTime();
-
 
         for (BusSchedule departureSoonBus : departureSoonBuses) {
-            int remainTime = (int) ((departureSoonBus.getDepartureTime().getTime() - currentTIme) / 60000);
+            int remainTime = RemainTimeGenerator.getRemainTime(departureSoonBus.getDepartureTime());
 
             BusLineInfo busLineInfo = departureSoonBus.getBusLineInfo();
 

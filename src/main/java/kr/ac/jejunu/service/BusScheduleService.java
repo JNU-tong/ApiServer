@@ -15,14 +15,12 @@ public class BusScheduleService {
     private BusScheduleRepository busScheduleRepository;
 
     public BusScheduleResponse getBusScheduleResponseByLineId(String lineId) {
-        BusScheduleResponse busScheduleResponse = new BusScheduleResponse();
 
         ArrayList<BusSchedule> busSchedules = busScheduleRepository.findBusSchedulesByBusLineInfo_LineIdAndAndWeekdayHoliday(lineId, WeekdayHoliday.weekday);
-        busScheduleResponse.setBusScheduleList(busSchedules);
-
         BusSchedule latestSchedule = busScheduleRepository.getLatestScheduleByLineId(lineId, WeekdayHoliday.weekday.name());
 
-        busScheduleResponse.setLatestSchedule(latestSchedule);
+
+        BusScheduleResponse busScheduleResponse = new BusScheduleResponse(busSchedules, latestSchedule);
 
         return busScheduleResponse;
     }
