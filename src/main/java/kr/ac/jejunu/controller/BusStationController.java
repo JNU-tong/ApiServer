@@ -1,6 +1,6 @@
 package kr.ac.jejunu.controller;
 
-import kr.ac.jejunu.model.BusStationInfo;
+import kr.ac.jejunu.model.jpa.BusStationInfo;
 import kr.ac.jejunu.service.BusStationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;

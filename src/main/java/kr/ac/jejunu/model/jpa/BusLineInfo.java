@@ -1,4 +1,4 @@
-package kr.ac.jejunu.model;
+package kr.ac.jejunu.model.jpa;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

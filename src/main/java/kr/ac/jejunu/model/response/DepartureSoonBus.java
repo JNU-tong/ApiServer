@@ -1,4 +1,7 @@
-package kr.ac.jejunu.model;
+package kr.ac.jejunu.model.response;
+
+import kr.ac.jejunu.model.jpa.BusLineInfo;
+import kr.ac.jejunu.model.response.RemainTime;
 
 public class DepartureSoonBus {
     private BusLineInfo busLineInfo;
