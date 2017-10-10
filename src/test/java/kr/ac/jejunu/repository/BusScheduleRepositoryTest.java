@@ -1,5 +1,6 @@
 package kr.ac.jejunu.repository;
 
+import kr.ac.jejunu.model.enm.WeekdayHoliday;
 import kr.ac.jejunu.model.jpa.BusSchedule;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -30,6 +31,17 @@ public class BusScheduleRepositoryTest {
 
         for (BusSchedule busSchedule : busScheduleArrayList) {
             System.out.println((busSchedule.getDepartureTime().getTime() - now.getTime()) / 60000);
+        }
+    }
+
+    @Test
+    public void findBusSchedulesByBusLineInfo_LineIdAndAndWeekdayHolidayTest() {
+        ArrayList<BusSchedule> list = busScheduleRepository.findBusSchedulesByLineIdWithWeekdayHoliday("JEB405134502", WeekdayHoliday.weekday.name());
+
+        for (BusSchedule schedule : list) {
+            System.out.println(schedule.getScheduleNo());
+            System.out.println(schedule.getWeekdayHoliday());
+            System.out.println(schedule.getDepartureTime());
         }
     }
 

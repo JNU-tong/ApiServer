@@ -16,7 +16,7 @@ public class BusScheduleService {
 
     public BusScheduleResponse getBusScheduleResponseByLineId(String lineId) {
 
-        ArrayList<BusSchedule> busSchedules = busScheduleRepository.findBusSchedulesByBusLineInfo_LineIdAndAndWeekdayHoliday(lineId, WeekdayHoliday.weekday);
+        ArrayList<BusSchedule> busSchedules = busScheduleRepository.findBusSchedulesByLineIdWithWeekdayHoliday(lineId, WeekdayHoliday.weekday.name());
         BusSchedule latestSchedule = busScheduleRepository.getLatestScheduleByLineId(lineId, WeekdayHoliday.weekday.name());
 
 
