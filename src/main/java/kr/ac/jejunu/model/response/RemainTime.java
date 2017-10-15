@@ -1,4 +1,4 @@
-package kr.ac.jejunu.model;
+package kr.ac.jejunu.model.response;
 
 public class RemainTime {
     Integer first;

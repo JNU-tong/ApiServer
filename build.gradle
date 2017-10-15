@@ -1,5 +1,5 @@
 group 'kr.ac.jejunu'
-version '1.0-SNAPSHOT'
+version '1.0.0'
 
 buildscript {
     repositories {
@@ -9,13 +9,26 @@ buildscript {
 
     dependencies {
         classpath 'org.springframework.boot:spring-boot-gradle-plugin:1.5.3.RELEASE'
+        classpath 'io.spring.gradle:dependency-management-plugin:0.5.1.RELEASE'
     }
 }
 
 apply plugin: 'java'
-apply plugin: 'spring-boot'
+apply plugin: 'org.springframework.boot'
 
 sourceCompatibility = 1.8
+
+jar {
+    manifest {
+        attributes  'Title': 'Tong Api Server', 'Version': 1.0, 'Main-Class': 'TongApplication'
+    }
+    baseName 'jnu-tong'
+//    archiveName 'reqTester.jar'
+    dependsOn configurations.runtime
+    from {
+        configurations.compile.collect {it.isDirectory()? it: zipTree(it)}
+    }
+}
 
 repositories {
     mavenCentral()
@@ -30,8 +43,8 @@ dependencies {
     compile('org.mariadb.jdbc:mariadb-java-client:2.0.2')
 
     testCompile('org.springframework.boot:spring-boot-starter-test')
-    testCompile group: 'junit', name: 'junit', version: '4.11'
     testCompile group: 'junit', name: 'junit', version: '4.12'
+
 }
 
 bootRun {

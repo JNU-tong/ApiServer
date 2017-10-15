@@ -1,6 +1,7 @@
 package kr.ac.jejunu.repository;
 
-import kr.ac.jejunu.model.BusSchedule;
+import kr.ac.jejunu.model.enm.WeekdayHoliday;
+import kr.ac.jejunu.model.jpa.BusSchedule;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,8 +14,6 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
-
-import static org.junit.Assert.*;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
@@ -32,6 +31,17 @@ public class BusScheduleRepositoryTest {
 
         for (BusSchedule busSchedule : busScheduleArrayList) {
             System.out.println((busSchedule.getDepartureTime().getTime() - now.getTime()) / 60000);
+        }
+    }
+
+    @Test
+    public void findBusSchedulesByBusLineInfo_LineIdAndAndWeekdayHolidayTest() {
+        ArrayList<BusSchedule> list = busScheduleRepository.findBusSchedulesByBusLineInfo_LineIdAndAndWeekdayHoliday("JEB405134502", WeekdayHoliday.weekday);
+
+        for (BusSchedule schedule : list) {
+            System.out.println(schedule.getScheduleNo());
+            System.out.println(schedule.getWeekdayHoliday());
+            System.out.println(schedule.getDepartureTime());
         }
     }
 

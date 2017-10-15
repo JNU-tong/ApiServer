@@ -1,4 +1,4 @@
-package kr.ac.jejunu.model;
+package kr.ac.jejunu.model.jpa;
 
 public class BusStationInfo {
     private String stationId;
