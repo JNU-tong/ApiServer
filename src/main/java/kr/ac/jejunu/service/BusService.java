@@ -25,8 +25,11 @@ public class BusService {
     @Autowired
     private BusScheduleRepository busScheduleRepository;
 
+    @Autowired
+    private TodayService todayService;
+
     public HashMap<String, DepartureSoonBus> getDepartureSoonBusList() {
-        ArrayList<BusSchedule> departureSoonBuses = busScheduleRepository.findBusSchedulesAfterNow(WeekdayHoliday.weekday.name());
+        ArrayList<BusSchedule> departureSoonBuses = busScheduleRepository.findBusSchedulesAfterNow(todayService.whatDayToday().name());
 
         HashMap<String, DepartureSoonBus> departureSoonBusList = new HashMap<>();
 

@@ -18,7 +18,6 @@ public class CustomWebMvcConfiguration extends WebMvcConfigurationSupport {
                 MappingJackson2HttpMessageConverter jacksonConverter = (MappingJackson2HttpMessageConverter) converter;
 
                 jacksonConverter.setPrettyPrint(true);
-
             }
         }
     }
