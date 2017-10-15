@@ -36,7 +36,7 @@ public class BusScheduleRepositoryTest {
 
     @Test
     public void findBusSchedulesByBusLineInfo_LineIdAndAndWeekdayHolidayTest() {
-        ArrayList<BusSchedule> list = busScheduleRepository.findBusSchedulesByBusLineInfo_LineIdAndAndWeekdayHoliday("JEB405134502", WeekdayHoliday.weekday);
+        ArrayList<BusSchedule> list = busScheduleRepository.findBusSchedulesByLineIdWithWeekdayHoliday("JEB405134502", WeekdayHoliday.weekday.name());
 
         for (BusSchedule schedule : list) {
             System.out.println(schedule.getScheduleNo());
