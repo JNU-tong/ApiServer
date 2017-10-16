@@ -1,6 +1,5 @@
 package kr.ac.jejunu.service;
 
-import kr.ac.jejunu.model.enm.WeekdayHoliday;
 import kr.ac.jejunu.model.jpa.BusSchedule;
 import kr.ac.jejunu.model.response.BusScheduleResponse;
 import kr.ac.jejunu.repository.BusScheduleRepository;
@@ -14,10 +13,13 @@ public class BusScheduleService {
     @Autowired
     private BusScheduleRepository busScheduleRepository;
 
+    @Autowired
+    private TodayService todayService;
+
     public BusScheduleResponse getBusScheduleResponseByLineId(String lineId) {
 
-        ArrayList<BusSchedule> busSchedules = busScheduleRepository.findBusSchedulesByLineIdWithWeekdayHoliday(lineId, WeekdayHoliday.weekday.name());
-        BusSchedule latestSchedule = busScheduleRepository.getLatestScheduleByLineId(lineId, WeekdayHoliday.weekday.name());
+        ArrayList<BusSchedule> busSchedules = busScheduleRepository.findBusSchedulesByLineIdWithWeekdayHoliday(lineId, todayService.whatDayToday().name());
+        BusSchedule latestSchedule = busScheduleRepository.getLatestScheduleByLineId(lineId, todayService.whatDayToday().name());
 
 
         BusScheduleResponse busScheduleResponse = new BusScheduleResponse(busSchedules, latestSchedule);
