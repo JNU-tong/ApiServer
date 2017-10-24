@@ -42,10 +42,7 @@ public class BusService {
                 DepartureSoonBus newBus = new DepartureSoonBus(busLineInfo, new RemainTime.RemainTimeBuilder(remainTime, null).build());
                 departureSoonBusList.put(busLineInfo.getLineId(), newBus);
             } else if (departureSoonBusList.get(busLineInfo.getLineId()).getRemainTime().getSecond() == null) {
-//                DepartureSoonBus updateBus = new DepartureSoonBus(busLineInfo, new RemainTime.RemainTimeBuilder(departureSoonBusList.get(busLineInfo.getLineId()).getRemainTime().getFirst(), remainTime).build());
-//                departureSoonBusList.put(busLineInfo.getLineId(), updateBus);
-
-                departureSoonBusList.get(busLineInfo.getLineId()).setRemainTime(new RemainTime.RemainTimeBuilder(departureSoonBusList.get(busLineInfo.getLineId()).getRemainTime().getFirst(), remainTime).build());
+                departureSoonBusList.get(busLineInfo.getLineId()).getRemainTime().setSecond(remainTime);
             }
         }
 
