@@ -1,9 +1,8 @@
 package kr.ac.jejunu.model.response;
 
 import kr.ac.jejunu.model.enm.WeekdayHoliday;
-import kr.ac.jejunu.model.jpa.BusSchedule;
+import kr.ac.jejunu.model.jpa.city_bus.CityBusSchedule;
 import kr.ac.jejunu.service.generator.RemainTimeGenerator;
-import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -12,11 +11,11 @@ public class BusScheduleResponse {
     private ArrayList<BusScheduleAndRemainTime> busScheduleList;
     private BusScheduleAndRemainTime latestSchedule;
 
-    public BusScheduleResponse(ArrayList<BusSchedule> busSchedules, BusSchedule latestSchedule) {
+    public BusScheduleResponse(ArrayList<CityBusSchedule> cityBusSchedules, CityBusSchedule latestSchedule) {
         this.busScheduleList = new ArrayList<>();
         this.latestSchedule = new BusScheduleAndRemainTime();
 
-        this.setBusScheduleList(busSchedules);
+        this.setBusScheduleList(cityBusSchedules);
         this.setLatestSchedule(latestSchedule);
     }
 
@@ -24,9 +23,9 @@ public class BusScheduleResponse {
         return busScheduleList;
     }
 
-    public void setBusScheduleList(ArrayList<BusSchedule> busScheduleList) {
+    public void setBusScheduleList(ArrayList<CityBusSchedule> cityBusScheduleList) {
 
-        for (BusSchedule schedule : busScheduleList) {
+        for (CityBusSchedule schedule : cityBusScheduleList) {
             BusScheduleAndRemainTime newSchedule = new BusScheduleAndRemainTime();
             newSchedule.setScheduleNo(schedule.getScheduleNo());
             newSchedule.setDepartureTime(schedule.getDepartureTime());
@@ -41,7 +40,7 @@ public class BusScheduleResponse {
         return latestSchedule;
     }
 
-    public void setLatestSchedule(BusSchedule latestSchedule) {
+    public void setLatestSchedule(CityBusSchedule latestSchedule) {
         this.latestSchedule.setScheduleNo(latestSchedule.getScheduleNo());
         this.latestSchedule.setDepartureTime(latestSchedule.getDepartureTime());
         this.latestSchedule.setRemainTime(RemainTimeGenerator.getRemainTime(latestSchedule.getDepartureTime()));

@@ -1,7 +1,7 @@
-package kr.ac.jejunu.controller;
+package kr.ac.jejunu.controller.city_bus;
 
-import kr.ac.jejunu.model.jpa.BusStationInfo;
-import kr.ac.jejunu.service.BusStationService;
+import kr.ac.jejunu.model.jpa.city_bus.CityBusStationInfo;
+import kr.ac.jejunu.service.city_bus.BusStationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -14,14 +14,14 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 @RestController
-public class BusStationController {
+public class CityBusStationController {
     @Autowired
     private BusStationService busStationService;
 
     @RequestMapping(value = "/getBusStationListByLineId/{lineId}", method = RequestMethod.GET)
-    public ArrayList<BusStationInfo> getBusStationListByLineId(@PathVariable String lineId) throws IOException, ParserConfigurationException, SAXException {
-        ArrayList<BusStationInfo> busStationInfoList = busStationService.getBusStationListByLineId(lineId);
+    public ArrayList<CityBusStationInfo> getBusStationListByLineId(@PathVariable String lineId) throws IOException, ParserConfigurationException, SAXException {
+        ArrayList<CityBusStationInfo> cityBusStationInfoList = busStationService.getBusStationListByLineId(lineId);
 
-        return busStationInfoList;
+        return cityBusStationInfoList;
     }
 }

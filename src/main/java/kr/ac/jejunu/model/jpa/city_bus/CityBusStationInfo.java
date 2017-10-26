@@ -1,6 +1,6 @@
-package kr.ac.jejunu.model.jpa;
+package kr.ac.jejunu.model.jpa.city_bus;
 
-public class BusStationInfo {
+public class CityBusStationInfo {
     private String stationId;
     private String stationName;
     private Integer stationOrder;

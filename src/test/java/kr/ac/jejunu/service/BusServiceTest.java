@@ -1,6 +1,7 @@
 package kr.ac.jejunu.service;
 
 import kr.ac.jejunu.model.response.DepartureSoonBus;
+import kr.ac.jejunu.service.city_bus.BusService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;

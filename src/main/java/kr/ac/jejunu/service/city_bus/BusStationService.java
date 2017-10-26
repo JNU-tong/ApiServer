@@ -1,6 +1,6 @@
-package kr.ac.jejunu.service;
+package kr.ac.jejunu.service.city_bus;
 
-import kr.ac.jejunu.model.jpa.BusStationInfo;
+import kr.ac.jejunu.model.jpa.city_bus.CityBusStationInfo;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.web.util.UriComponentsBuilder;
@@ -32,9 +32,9 @@ public class BusStationService {
     @Value("${busApi.numOfRows}")
     private Integer numOfRows;
 
-    private ArrayList<BusStationInfo> busStationListByLineId;
+    private ArrayList<CityBusStationInfo> busStationListByLineId;
 
-    public ArrayList<BusStationInfo> getBusStationListByLineId(String lineId) throws IOException, ParserConfigurationException, SAXException {
+    public ArrayList<CityBusStationInfo> getBusStationListByLineId(String lineId) throws IOException, ParserConfigurationException, SAXException {
         URI requestUrl = UriComponentsBuilder.newInstance()
                 .scheme("http")
                 .host(url)
@@ -67,7 +67,7 @@ public class BusStationService {
         for (int i = 0; i < itemList.getLength(); i++) {
             Node item = itemList.item(i);
 
-            BusStationInfo busStationInfo = new BusStationInfo();
+            CityBusStationInfo cityBusStationInfo = new CityBusStationInfo();
 
             if (item.getNodeType() == Node.ELEMENT_NODE) {
 
@@ -77,11 +77,11 @@ public class BusStationService {
 //                System.out.println("Station Name : " + getTagValue("nodenm", eElement));
 //                System.out.println("Station Order : " + Integer.parseInt(getTagValue("nodeord", eElement)));
 
-                busStationInfo.setStationId(getTagValue("nodeid", eElement));
-                busStationInfo.setStationName(getTagValue("nodenm", eElement));
-                busStationInfo.setStationOrder(Integer.parseInt(getTagValue("nodeord", eElement)));
+                cityBusStationInfo.setStationId(getTagValue("nodeid", eElement));
+                cityBusStationInfo.setStationName(getTagValue("nodenm", eElement));
+                cityBusStationInfo.setStationOrder(Integer.parseInt(getTagValue("nodeord", eElement)));
 
-                busStationListByLineId.add(busStationInfo);
+                busStationListByLineId.add(cityBusStationInfo);
             }
         }
 

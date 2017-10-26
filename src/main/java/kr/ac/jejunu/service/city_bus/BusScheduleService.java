@@ -1,8 +1,9 @@
-package kr.ac.jejunu.service;
+package kr.ac.jejunu.service.city_bus;
 
-import kr.ac.jejunu.model.jpa.BusSchedule;
+import kr.ac.jejunu.model.jpa.city_bus.CityBusSchedule;
 import kr.ac.jejunu.model.response.BusScheduleResponse;
 import kr.ac.jejunu.repository.BusScheduleRepository;
+import kr.ac.jejunu.service.TodayService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -18,11 +19,11 @@ public class BusScheduleService {
 
     public BusScheduleResponse getBusScheduleResponseByLineId(String lineId) {
 
-        ArrayList<BusSchedule> busSchedules = busScheduleRepository.findBusSchedulesByLineIdWithWeekdayHoliday(lineId, todayService.whatDayToday().name());
-        BusSchedule latestSchedule = busScheduleRepository.getLatestScheduleByLineId(lineId, todayService.whatDayToday().name());
+        ArrayList<CityBusSchedule> cityBusSchedules = busScheduleRepository.findBusSchedulesByLineIdWithWeekdayHoliday(lineId, todayService.whatDayToday().name());
+        CityBusSchedule latestSchedule = busScheduleRepository.getLatestScheduleByLineId(lineId, todayService.whatDayToday().name());
 
 
-        BusScheduleResponse busScheduleResponse = new BusScheduleResponse(busSchedules, latestSchedule);
+        BusScheduleResponse busScheduleResponse = new BusScheduleResponse(cityBusSchedules, latestSchedule);
 
         return busScheduleResponse;
     }

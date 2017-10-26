@@ -1,7 +1,7 @@
-package kr.ac.jejunu.controller;
+package kr.ac.jejunu.controller.city_bus;
 
 import kr.ac.jejunu.model.response.DepartureSoonBus;
-import kr.ac.jejunu.service.BusService;
+import kr.ac.jejunu.service.city_bus.BusService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -14,7 +14,7 @@ import java.util.HashMap;
  * Created by Boobby on 17-9-16.
  */
 @RestController
-public class BusController {
+public class CityBusController {
     @Autowired
     private BusService busService;
 

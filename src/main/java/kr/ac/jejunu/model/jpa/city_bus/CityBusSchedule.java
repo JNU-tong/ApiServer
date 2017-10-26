@@ -1,4 +1,4 @@
-package kr.ac.jejunu.model.jpa;
+package kr.ac.jejunu.model.jpa.city_bus;
 
 import kr.ac.jejunu.model.enm.WeekdayHoliday;
 
@@ -9,7 +9,7 @@ import java.util.Date;
  * Created by Boobby on 17-9-18.
  */
 @Entity(name = "bus_schedule")
-public class BusSchedule {
+public class CityBusSchedule {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "schedule_no")
@@ -17,7 +17,7 @@ public class BusSchedule {
 
     @ManyToOne
     @JoinColumn(name = "line_id", nullable = false)
-    private BusLineInfo busLineInfo;
+    private CityBusLineInfo cityBusLineInfo;
 
     @Temporal(value = TemporalType.TIME)
     @Column(name = "departure_time", nullable = false)
@@ -35,12 +35,12 @@ public class BusSchedule {
         this.scheduleNo = scheduleNo;
     }
 
-    public BusLineInfo getBusLineInfo() {
-        return busLineInfo;
+    public CityBusLineInfo getCityBusLineInfo() {
+        return cityBusLineInfo;
     }
 
-    public void setBusLineInfo(BusLineInfo busLineInfo) {
-        this.busLineInfo = busLineInfo;
+    public void setCityBusLineInfo(CityBusLineInfo cityBusLineInfo) {
+        this.cityBusLineInfo = cityBusLineInfo;
     }
 
     public Date getDepartureTime() {

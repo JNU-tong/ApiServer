@@ -1,19 +1,16 @@
-package kr.ac.jejunu.controller;
+package kr.ac.jejunu.controller.city_bus;
 
 
-import kr.ac.jejunu.model.jpa.BusSchedule;
 import kr.ac.jejunu.model.response.BusScheduleResponse;
-import kr.ac.jejunu.service.BusScheduleService;
+import kr.ac.jejunu.service.city_bus.BusScheduleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.ArrayList;
-
 @RestController
-public class BusScheduleController {
+public class CityBusScheduleController {
     @Autowired
     private BusScheduleService busScheduleService;
 

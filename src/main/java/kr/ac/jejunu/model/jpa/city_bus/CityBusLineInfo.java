@@ -1,4 +1,4 @@
-package kr.ac.jejunu.model.jpa;
+package kr.ac.jejunu.model.jpa.city_bus;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -11,7 +11,7 @@ import java.util.List;
  * Created by Boobby on 17-9-18.
  */
 @Entity(name = "bus_line_info")
-public class BusLineInfo {
+public class CityBusLineInfo {
     @Id
     @Column(name = "line_id", nullable = false, length = 12)
     private String lineId;
@@ -26,7 +26,7 @@ public class BusLineInfo {
     private String description;
 
 //    @OneToMany(mappedBy = "bus_line_info")
-//    List<BusSchedule> busScheduleList = new ArrayList<>();
+//    List<CityBusSchedule> busScheduleList = new ArrayList<>();
 
     public String getLineId() {
         return lineId;
@@ -60,11 +60,11 @@ public class BusLineInfo {
         this.description = description;
     }
 
-//    public List<BusSchedule> getBusScheduleList() {
+//    public List<CityBusSchedule> getBusScheduleList() {
 //        return busScheduleList;
 //    }
 //
-//    public void setBusScheduleList(List<BusSchedule> busScheduleList) {
+//    public void setBusScheduleList(List<CityBusSchedule> busScheduleList) {
 //        this.busScheduleList = busScheduleList;
 //    }
 }

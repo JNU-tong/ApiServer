@@ -1,24 +1,23 @@
 package kr.ac.jejunu.model.response;
 
-import kr.ac.jejunu.model.jpa.BusLineInfo;
-import kr.ac.jejunu.model.response.RemainTime;
+import kr.ac.jejunu.model.jpa.city_bus.CityBusLineInfo;
 
 public class DepartureSoonBus {
-    private BusLineInfo busLineInfo;
+    private CityBusLineInfo cityBusLineInfo;
 
     private RemainTime remainTime;
 
-    public DepartureSoonBus(BusLineInfo busLineInfo, RemainTime remainTime) {
-        this.busLineInfo = busLineInfo;
+    public DepartureSoonBus(CityBusLineInfo cityBusLineInfo, RemainTime remainTime) {
+        this.cityBusLineInfo = cityBusLineInfo;
         this.remainTime = remainTime;
     }
 
-    public BusLineInfo getBusLineInfo() {
-        return busLineInfo;
+    public CityBusLineInfo getCityBusLineInfo() {
+        return cityBusLineInfo;
     }
 
-    public void setBusLineInfo(BusLineInfo busLineInfo) {
-        this.busLineInfo = busLineInfo;
+    public void setCityBusLineInfo(CityBusLineInfo cityBusLineInfo) {
+        this.cityBusLineInfo = cityBusLineInfo;
     }
 
     public RemainTime getRemainTime() {
