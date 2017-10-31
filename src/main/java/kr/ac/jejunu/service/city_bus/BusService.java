@@ -2,7 +2,7 @@ package kr.ac.jejunu.service.city_bus;
 
 import kr.ac.jejunu.model.jpa.city_bus.CityBusLineInfo;
 import kr.ac.jejunu.model.jpa.city_bus.CityBusSchedule;
-import kr.ac.jejunu.model.response.DepartureSoonBus;
+import kr.ac.jejunu.model.response.city_bus.DepartureSoonBus;
 import kr.ac.jejunu.model.response.RemainTime;
 import kr.ac.jejunu.repository.BusScheduleRepository;
 import kr.ac.jejunu.service.TodayService;
@@ -35,7 +35,7 @@ public class BusService {
             CityBusLineInfo cityBusLineInfo = departureSoonBus.getCityBusLineInfo();
 
             if (!departureSoonBusList.containsKey(cityBusLineInfo.getLineId())) {
-                DepartureSoonBus newBus = new DepartureSoonBus(cityBusLineInfo, new RemainTime.RemainTimeBuilder(remainTime, null).build());
+                DepartureSoonBus newBus = new DepartureSoonBus(cityBusLineInfo, new RemainTime(remainTime, null));
                 departureSoonBusList.put(cityBusLineInfo.getLineId(), newBus);
             } else if (departureSoonBusList.get(cityBusLineInfo.getLineId()).getRemainTime().getSecond() == null) {
                 departureSoonBusList.get(cityBusLineInfo.getLineId()).getRemainTime().setSecond(remainTime);

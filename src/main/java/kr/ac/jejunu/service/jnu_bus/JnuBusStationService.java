@@ -23,7 +23,6 @@ public class JnuBusStationService {
             }
         }
 
-
         for (int i = 0; i < busStationList.size(); i++) {
             busStationList.get(i).setOrder(i + 1);
         }

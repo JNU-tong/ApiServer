@@ -1,7 +1,7 @@
 package kr.ac.jejunu.service.city_bus;
 
 import kr.ac.jejunu.model.jpa.city_bus.CityBusSchedule;
-import kr.ac.jejunu.model.response.BusScheduleResponse;
+import kr.ac.jejunu.model.response.city_bus.BusScheduleResponse;
 import kr.ac.jejunu.repository.BusScheduleRepository;
 import kr.ac.jejunu.service.TodayService;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -24,8 +24,6 @@ public class RemainTimeGenerator {
             System.out.println("Date Parsing Error!!");
         }
 
-        if (remainTime < 0) return -1;
-
         return remainTime;
     }
 }

@@ -1,6 +1,6 @@
 package kr.ac.jejunu.service;
 
-import kr.ac.jejunu.model.jpa.city_bus.CityBusStationInfo;
+import kr.ac.jejunu.model.response.city_bus.CityBusStationInfo;
 import kr.ac.jejunu.service.city_bus.BusStationService;
 import org.junit.Test;
 import org.junit.runner.RunWith;

@@ -43,19 +43,6 @@ public class TodayService {
         setToday();
     }
 
-    public WeekdayHoliday whatDay(String yyyyMMdd) {
-        if (!isToday(yyyyMMdd)) {
-            lastUpdatedDate = yyyyMMdd;
-
-            if (isTodayHoliday() || isTodayWeekend())
-                lastDay = WeekdayHoliday.holiday;
-            else
-                lastDay = WeekdayHoliday.weekday;
-        }
-
-        return lastDay;
-    }
-
     public WeekdayHoliday whatDayToday() {
         // if last updated date equals today, will not check again.
         if (!isToday()) {
@@ -141,23 +128,9 @@ public class TodayService {
         return lastUpdatedDate.equals(today);
     }
 
-    private boolean isToday(String yyyyMMdd) {
-        setToday(yyyyMMdd);
-
-        return lastUpdatedDate.equals(yyyyMMdd);
-    }
-
-    private void setToday(String yyyyMMdd) {
-        today = yyyyMMdd;
-    }
-
     private void setToday() {
         Date todayDate = new Date();
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyyMMdd");
         today = dateFormat.format(todayDate);
-    }
-
-    public String getToday() {
-        return today;
     }
 }

@@ -1,11 +1,10 @@
-package kr.ac.jejunu.model.response;
+package kr.ac.jejunu.model.response.jnu_bus;
 
-import kr.ac.jejunu.model.enm.JnuBusCourse;
 import kr.ac.jejunu.model.jpa.jnu_bus.JnuBusStation;
+import kr.ac.jejunu.model.response.RemainTime;
 
 public class JnuBusArrivalInfo {
     private JnuBusStation jnuBusStation;
-    private JnuBusCourse course;
     private RemainTime remainTime;
 
     public JnuBusStation getJnuBusStation() {
@@ -14,14 +13,6 @@ public class JnuBusArrivalInfo {
 
     public void setJnuBusStation(JnuBusStation jnuBusStation) {
         this.jnuBusStation = jnuBusStation;
-    }
-
-    public JnuBusCourse getCourse() {
-        return course;
-    }
-
-    public void setCourse(JnuBusCourse course) {
-        this.course = course;
     }
 
     public RemainTime getRemainTime() {

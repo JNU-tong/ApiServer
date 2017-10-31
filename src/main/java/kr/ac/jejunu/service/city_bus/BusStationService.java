@@ -1,6 +1,6 @@
 package kr.ac.jejunu.service.city_bus;
 
-import kr.ac.jejunu.model.jpa.city_bus.CityBusStationInfo;
+import kr.ac.jejunu.model.response.city_bus.CityBusStationInfo;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.web.util.UriComponentsBuilder;

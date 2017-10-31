@@ -1,6 +1,7 @@
-package kr.ac.jejunu.model.response;
+package kr.ac.jejunu.model.response.city_bus;
 
 import kr.ac.jejunu.model.jpa.city_bus.CityBusLineInfo;
+import kr.ac.jejunu.model.response.RemainTime;
 
 public class DepartureSoonBus {
     private CityBusLineInfo cityBusLineInfo;

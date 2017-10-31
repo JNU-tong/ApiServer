@@ -1,4 +1,4 @@
-package kr.ac.jejunu.model.response;
+package kr.ac.jejunu.model.response.city_bus;
 
 import kr.ac.jejunu.model.enm.WeekdayHoliday;
 import kr.ac.jejunu.model.jpa.city_bus.CityBusSchedule;
