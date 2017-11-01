@@ -29,13 +29,15 @@ public class JnuBusScheduleService {
         ArrayList<JnuBusArrivalInfo> jnuBusArrivalInfoArrayList = new ArrayList<>();
 
         ArrayList<JnuBusStation> jnuBusStations = jnuBusStationService.getBusStationList(course);
-        JnuBusArrivalInfo busArrivalInfo = new JnuBusArrivalInfo();
-        RemainTime remainTime;
-        for (int i = 0; i < jnuBusStations.size(); i++) {
 
-            remainTime = new RemainTime(null, null);
+        for (int i = 0; i < jnuBusStations.size(); i++) {
+            JnuBusArrivalInfo busArrivalInfo = new JnuBusArrivalInfo();
+
+            RemainTime remainTime = getRemainTimeOfStation(course, i + 1);
+
             busArrivalInfo.setJnuBusStation(jnuBusStations.get(i));
             busArrivalInfo.setRemainTime(remainTime);
+
             jnuBusArrivalInfoArrayList.add(busArrivalInfo);
         }
         return jnuBusArrivalInfoArrayList;
@@ -49,6 +51,7 @@ public class JnuBusScheduleService {
 
     public RemainTime getRemainTimeOfStation(String course, Integer order) {
         ArrayList<JnuBusSchedule> jnuBusScheduleArrayList = getJnuBusScheduleListByCourse(course);
+
         RemainTime remainTime = new RemainTime(null, null);
         if (todayService.whatDayToday() == WeekdayHoliday.weekday) {
             if ((order == 12 && course.equals("A")) || (order == 5 && course.equals("B"))) {
@@ -56,7 +59,7 @@ public class JnuBusScheduleService {
                     int time = -1;
 
                     if (jnuBusScheduleArrayList.get(i).isGoOceanScience())
-                        time = RemainTimeGenerator.getRemainTime(jnuBusScheduleArrayList.get(i).getDepartureTime()) + order;
+                        time = RemainTimeGenerator.getRemainTime(jnuBusScheduleArrayList.get(i).getDepartureTime()) + order - 1;
 
                     if (time > 0 && remainTime.getFirst() == null) remainTime.setFirst(time);
                     else if (time > 0 && remainTime.getSecond() == null) {
@@ -69,11 +72,11 @@ public class JnuBusScheduleService {
                     int time;
 
                     if (order > 12 && course.equals("A") && !jnuBusScheduleArrayList.get(i).isGoOceanScience()) {
-                        time = RemainTimeGenerator.getRemainTime(jnuBusScheduleArrayList.get(i).getDepartureTime()) + order - 1;
+                        time = RemainTimeGenerator.getRemainTime(jnuBusScheduleArrayList.get(i).getDepartureTime()) + order - 2;
                     } else if (order > 5 && course.equals("B") && !jnuBusScheduleArrayList.get(i).isGoOceanScience()) {
-                        time = RemainTimeGenerator.getRemainTime(jnuBusScheduleArrayList.get(i).getDepartureTime()) + order - 1;
+                        time = RemainTimeGenerator.getRemainTime(jnuBusScheduleArrayList.get(i).getDepartureTime()) + order - 2;
                     } else
-                        time = RemainTimeGenerator.getRemainTime(jnuBusScheduleArrayList.get(i).getDepartureTime()) + order;
+                        time = RemainTimeGenerator.getRemainTime(jnuBusScheduleArrayList.get(i).getDepartureTime()) + order - 1;
 
                     if (time > 0 && remainTime.getFirst() == null) remainTime.setFirst(time);
                     else if (time > 0 && remainTime.getSecond() == null) {
