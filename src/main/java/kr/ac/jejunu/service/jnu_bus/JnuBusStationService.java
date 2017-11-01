@@ -29,4 +29,8 @@ public class JnuBusStationService {
 
         return busStationList;
     }
+
+    public JnuBusStation getBusStationById(Integer stationId) {
+        return jnuBusStationRepository.findOne(stationId);
+    }
 }

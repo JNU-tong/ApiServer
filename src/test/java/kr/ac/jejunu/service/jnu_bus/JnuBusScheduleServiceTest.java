@@ -32,7 +32,7 @@ public class JnuBusScheduleServiceTest {
 
     @Test
     public void getRemainTimeOfStationTest() {
-        RemainTime remainTime = jnuBusScheduleService.getRemainTimeOfStation("B", 13);
+        RemainTime remainTime = jnuBusScheduleService.getRemainTimeOfStationByCourse("B", 13);
 
         System.out.println(remainTime.getFirst());
         System.out.println(remainTime.getSecond());

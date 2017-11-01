@@ -13,6 +13,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 @Service
 public class JnuBusScheduleService {
@@ -33,7 +34,7 @@ public class JnuBusScheduleService {
         for (int i = 0; i < jnuBusStations.size(); i++) {
             JnuBusArrivalInfo busArrivalInfo = new JnuBusArrivalInfo();
 
-            RemainTime remainTime = getRemainTimeOfStation(course, i + 1);
+            RemainTime remainTime = getRemainTimeOfStationByCourse(course, i + 1);
 
             busArrivalInfo.setJnuBusStation(jnuBusStations.get(i));
             busArrivalInfo.setRemainTime(remainTime);
@@ -43,13 +44,34 @@ public class JnuBusScheduleService {
         return jnuBusArrivalInfoArrayList;
     }
 
+    public HashMap<String, RemainTime> getRemainTimeOfStationAllCourse(Integer stationId) {
+        HashMap<String, RemainTime> arrivalInfo = new HashMap<>();
+
+        ArrayList<JnuBusStation> bCourseList = jnuBusStationService.getBusStationList("B");
+        int bOrder = 0;
+        for (int i = 0; i < bCourseList.size(); i++) {
+            if (bCourseList.get(i).getId() == stationId) {
+                bOrder = bCourseList.get(i).getOrder();
+                break;
+            }
+        }
+
+        RemainTime aCourse = getRemainTimeOfStationByCourse("A", stationId);
+        RemainTime bCourse = getRemainTimeOfStationByCourse("B", bOrder);
+
+        arrivalInfo.put("A", aCourse);
+        arrivalInfo.put("B", bCourse);
+
+        return arrivalInfo;
+    }
+
     public ArrayList<JnuBusSchedule> getJnuBusScheduleListByCourse(String course) {
         ArrayList<JnuBusSchedule> jnuBusScheduleArrayList = jnuBusScheduleRepository.findAllByCourse(JnuBusCourse.valueOf(course));
 
         return jnuBusScheduleArrayList;
     }
 
-    public RemainTime getRemainTimeOfStation(String course, Integer order) {
+    public RemainTime getRemainTimeOfStationByCourse(String course, Integer order) {
         ArrayList<JnuBusSchedule> jnuBusScheduleArrayList = getJnuBusScheduleListByCourse(course);
 
         RemainTime remainTime = new RemainTime(null, null);
