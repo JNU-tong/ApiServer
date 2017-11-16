@@ -6,6 +6,8 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import kr.ac.jejunu.model.enm.WeekdayHoliday;
 import kr.ac.jejunu.model.response.EventDayInfo;
 import kr.ac.jejunu.model.response.EventDayJson;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
@@ -52,8 +54,11 @@ public class TodayService {
                 lastDay = WeekdayHoliday.holiday;
             else
                 lastDay = WeekdayHoliday.weekday;
+
+            System.out.println("last updated date not equal with today!");
         }
 
+        System.out.println(lastDay.name());
         return lastDay;
     }
 
@@ -132,5 +137,6 @@ public class TodayService {
         Date todayDate = new Date();
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyyMMdd");
         today = dateFormat.format(todayDate);
+        System.out.println("set today : " + today);
     }
 }
