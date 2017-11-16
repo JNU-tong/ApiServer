@@ -1,7 +1,7 @@
 package kr.ac.jejunu.controller.city_bus;
 
-import kr.ac.jejunu.model.response.city_bus.DepartureSoonBus;
-import kr.ac.jejunu.service.city_bus.BusService;
+import kr.ac.jejunu.model.response.city_bus.DepartureSoonCityBus;
+import kr.ac.jejunu.service.city_bus.CityBusService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -16,12 +16,12 @@ import java.util.HashMap;
 @RestController
 public class CityBusController {
     @Autowired
-    private BusService busService;
+    private CityBusService cityBusService;
 
     @RequestMapping(value = "/getDepartureSoonBusList", method = RequestMethod.GET)
-    public HashMap<String, DepartureSoonBus> getBeforeDepartureBusList() throws ParseException {
+    public HashMap<String, DepartureSoonCityBus> getBeforeDepartureBusList() throws ParseException {
         System.out.println("/getDepartureSoonBusList request received!!");
-        HashMap<String, DepartureSoonBus> departureSoonBusList =  busService.getDepartureSoonBusList();
+        HashMap<String, DepartureSoonCityBus> departureSoonBusList =  cityBusService.getDepartureSoonBusList();
 
         return departureSoonBusList;
     }

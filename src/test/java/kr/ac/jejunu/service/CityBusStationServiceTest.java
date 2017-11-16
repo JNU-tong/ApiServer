@@ -1,7 +1,7 @@
 package kr.ac.jejunu.service;
 
 import kr.ac.jejunu.model.response.city_bus.CityBusStationInfo;
-import kr.ac.jejunu.service.city_bus.BusStationService;
+import kr.ac.jejunu.service.city_bus.CityBusStationService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,14 +18,14 @@ import static org.junit.Assert.assertThat;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
-public class BusStationServiceTest {
+public class CityBusStationServiceTest {
     @Autowired
-    private BusStationService busStationService;
+    private CityBusStationService cityBusStationService;
 
     @Test
     public void getBusStationListByLineIdTest() throws IOException, ParserConfigurationException, SAXException {
         String lineId = "JEB405327002";
-        ArrayList<CityBusStationInfo> cityBusStationInfoArrayList = busStationService.getBusStationListByLineId(lineId);
+        ArrayList<CityBusStationInfo> cityBusStationInfoArrayList = cityBusStationService.getBusStationListByLineId(lineId);
 
 //        assertThat(cityBusStationInfoArrayList.size(), is(53));
     }

@@ -7,11 +7,11 @@ import kr.ac.jejunu.service.generator.RemainTimeGenerator;
 import java.util.ArrayList;
 import java.util.Date;
 
-public class BusScheduleResponse {
+public class CityBusScheduleResponse {
     private ArrayList<BusScheduleAndRemainTime> busScheduleList;
     private BusScheduleAndRemainTime latestSchedule;
 
-    public BusScheduleResponse(ArrayList<CityBusSchedule> cityBusSchedules, CityBusSchedule latestSchedule) {
+    public CityBusScheduleResponse(ArrayList<CityBusSchedule> cityBusSchedules, CityBusSchedule latestSchedule) {
         this.busScheduleList = new ArrayList<>();
         this.latestSchedule = new BusScheduleAndRemainTime();
 

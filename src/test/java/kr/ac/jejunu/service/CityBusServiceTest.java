@@ -1,7 +1,7 @@
 package kr.ac.jejunu.service;
 
-import kr.ac.jejunu.model.response.city_bus.DepartureSoonBus;
-import kr.ac.jejunu.service.city_bus.BusService;
+import kr.ac.jejunu.model.response.city_bus.DepartureSoonCityBus;
+import kr.ac.jejunu.service.city_bus.CityBusService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,13 +21,13 @@ import static org.junit.Assert.assertThat;
 @RunWith(SpringRunner.class)
 @SpringBootTest
 @Transactional
-public class BusServiceTest {
+public class CityBusServiceTest {
     @Autowired
-    private BusService busService;
+    private CityBusService cityBusService;
 
     @Test
     public void getAfterNowBusScheduleListTest() throws ParseException {
-        HashMap<String, DepartureSoonBus> busScheduleArrayList = busService.getDepartureSoonBusList();
+        HashMap<String, DepartureSoonCityBus> busScheduleArrayList = cityBusService.getDepartureSoonBusList();
 
 
         assertThat(busScheduleArrayList.size(), not(0));

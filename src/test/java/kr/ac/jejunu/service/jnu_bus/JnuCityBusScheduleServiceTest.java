@@ -15,7 +15,7 @@ import java.util.ArrayList;
 @RunWith(SpringRunner.class)
 @SpringBootTest
 @Transactional
-public class JnuBusScheduleServiceTest {
+public class JnuCityBusScheduleServiceTest {
     @Autowired
     private JnuBusScheduleService jnuBusScheduleService;
 

@@ -1,4 +1,4 @@
-package kr.ac.jejunu.service;
+package kr.ac.jejunu.service.generator;
 
 import com.fasterxml.jackson.core.JsonParseException;
 import com.fasterxml.jackson.databind.JsonMappingException;

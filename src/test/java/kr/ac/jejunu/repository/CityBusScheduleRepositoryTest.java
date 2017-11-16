@@ -2,6 +2,7 @@ package kr.ac.jejunu.repository;
 
 import kr.ac.jejunu.model.enm.WeekdayHoliday;
 import kr.ac.jejunu.model.jpa.city_bus.CityBusSchedule;
+import kr.ac.jejunu.repository.city_bus.BusScheduleRepository;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;

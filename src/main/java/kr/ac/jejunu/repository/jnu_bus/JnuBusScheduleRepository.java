@@ -1,4 +1,4 @@
-package kr.ac.jejunu.repository;
+package kr.ac.jejunu.repository.jnu_bus;
 
 import kr.ac.jejunu.model.enm.JnuBusCourse;
 import kr.ac.jejunu.model.jpa.jnu_bus.JnuBusSchedule;

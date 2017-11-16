@@ -1,4 +1,4 @@
-package kr.ac.jejunu.repository;
+package kr.ac.jejunu.repository.city_bus;
 
 import kr.ac.jejunu.model.jpa.city_bus.CityBusLineInfo;
 import org.springframework.data.repository.CrudRepository;

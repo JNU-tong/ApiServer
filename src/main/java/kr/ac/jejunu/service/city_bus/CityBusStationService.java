@@ -19,7 +19,7 @@ import java.net.URLDecoder;
 import java.util.ArrayList;
 
 @Service
-public class BusStationService {
+public class CityBusStationService {
     @Value("${busApi.serviceKey}")
     private String serviceKey;
 

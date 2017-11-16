@@ -3,12 +3,12 @@ package kr.ac.jejunu.model.response.city_bus;
 import kr.ac.jejunu.model.jpa.city_bus.CityBusLineInfo;
 import kr.ac.jejunu.model.response.RemainTime;
 
-public class DepartureSoonBus {
+public class DepartureSoonCityBus {
     private CityBusLineInfo cityBusLineInfo;
 
     private RemainTime remainTime;
 
-    public DepartureSoonBus(CityBusLineInfo cityBusLineInfo, RemainTime remainTime) {
+    public DepartureSoonCityBus(CityBusLineInfo cityBusLineInfo, RemainTime remainTime) {
         this.cityBusLineInfo = cityBusLineInfo;
         this.remainTime = remainTime;
     }

@@ -1,7 +1,7 @@
 package kr.ac.jejunu.service.jnu_bus;
 
 import kr.ac.jejunu.model.jpa.jnu_bus.JnuBusStation;
-import kr.ac.jejunu.repository.JnuBusStationRepository;
+import kr.ac.jejunu.repository.jnu_bus.JnuBusStationRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
