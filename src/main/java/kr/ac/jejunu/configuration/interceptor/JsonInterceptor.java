@@ -11,7 +11,6 @@ import java.io.IOException;
 import java.util.Collections;
 
 public class JsonInterceptor implements ClientHttpRequestInterceptor {
-
     @Override
     public ClientHttpResponse intercept(HttpRequest request, byte[] body, ClientHttpRequestExecution execution) throws IOException {
         HttpHeaders headers = request.getHeaders();
