@@ -5,6 +5,7 @@ import org.springframework.stereotype.Service;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 
 @Service
@@ -25,5 +26,12 @@ public class RemainTimeGenerator {
         }
 
         return remainTime;
+    }
+
+    public static Integer getRemainDay(Date date) {
+        Date today = new Date();
+        double diff = (date.getTime() - today.getTime());
+        Integer dDay = (int) Math.ceil(diff / (24 * 60 * 60 * 1000));
+        return dDay;
     }
 }

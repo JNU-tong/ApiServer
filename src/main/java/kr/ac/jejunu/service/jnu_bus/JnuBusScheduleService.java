@@ -7,7 +7,7 @@ import kr.ac.jejunu.model.jpa.jnu_bus.JnuBusStation;
 import kr.ac.jejunu.model.response.RemainTime;
 import kr.ac.jejunu.model.response.jnu_bus.JnuBusArrivalInfo;
 import kr.ac.jejunu.repository.JnuBusScheduleRepository;
-import kr.ac.jejunu.service.TodayService;
+import kr.ac.jejunu.service.generator.TodayService;
 import kr.ac.jejunu.service.generator.RemainTimeGenerator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

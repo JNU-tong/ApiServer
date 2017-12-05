@@ -13,8 +13,4 @@ public interface JnuBusScheduleRepository extends CrudRepository<JnuBusSchedule,
     ArrayList<JnuBusSchedule> findAllByDepartureTimeAfter(String course);
 
     ArrayList<JnuBusSchedule> findAllByCourse(JnuBusCourse course);
-    // departure_time 에 (order - 1)분 더하면 도착 예정 시간이니까
-    // 더하고 departure_time 이랑 now() 비교, 위에서 2개만 가져오기(limit 이였나?)
-
-    // A코스랑 B코스 둘다 Station 에 넣고 줄까..?
 }
