@@ -51,4 +51,14 @@ public class JnuEventDay {
     public void setdDay(Integer dDay) {
         this.dDay = dDay;
     }
+
+    @Override
+    public String toString() {
+        return "JnuEventDay{" +
+                "id=" + id +
+                ", date=" + date +
+                ", event='" + event + '\'' +
+                ", dDay=" + dDay +
+                '}';
+    }
 }
