@@ -26,6 +26,7 @@ public class BusService {
 
     public HashMap<String, DepartureSoonBus> getDepartureSoonBusList() {
         ArrayList<CityBusSchedule> departureSoonBuses = busScheduleRepository.findBusSchedulesAfterNow(todayService.whatDayToday().name());
+        System.out.println(departureSoonBuses);
 
         HashMap<String, DepartureSoonBus> departureSoonBusList = new HashMap<>();
 
